@@ -53,8 +53,11 @@ void variableTestFunction(){
   double z;
   char ch;
 
+  cout << "\nEnter a character: ";
   cin >> ch;
+  cout << "\nEnter two integers separated by a space: ";
   cin >> a >> b;
+  cout << "\nEnter a floating point number: ";
   cin >> z;
 
   cout << "\na = " << a << "\nb = " << b << "\nz = " << z << "\nch = " << ch << endl;
