@@ -1,10 +1,16 @@
 #include <iostream>
 #include <string>
+#include <iomanip>
+#include <fstream>
 using namespace std;
 
 void inchesTestFunction();
 void infoTestFunction();
 void variableTestFunction();
+void ignoreTestFunction();
+void floatingPointPrecisionManipulation();
+void getLineTestFunction();
+void readFileTestFunction();
 
 int main() {
   bool quit = false;
@@ -14,14 +20,24 @@ int main() {
 
     //infoTestFunction();
 
-    variableTestFunction();
+    //variableTestFunction();
+
+    //ignoreTestFunction();
+    
+    //floatingPointPrecisionManipulation();
+
+    //getLineTestFunction();
+
+    readFileTestFunction();
     
     char again = 'n';
     cout << "Run again? Y for 'Yes' and N for 'No' : ";
     cin >> again;
-      if(again == 'n' || again == 'N'){
-        quit = true;
-      }
+    quit = (again == 'n' || again == 'N');
+    /*
+    cout << again;
+    cout << quit;
+    */
     }
   cout << endl;
   return 0;
@@ -64,6 +80,55 @@ void variableTestFunction(){
   
 }
 
+void ignoreTestFunction(){
+  char ch1, ch2;
+  char ch3, ch4;
+
+  cout << "Enter message: ";
+  cin >> ch1;
+  cin.ignore(5,'.');
+  cin >> ch2;
+  cout << "\nch1 = " << ch1;
+  cout << "\nch2 = " << ch2 << endl;
+  cout << "Enter message: ";
+  cin >> ch3;
+  cin.ignore(100,'.');
+  cin >> ch4;
+  cout << "\nch3 = " << ch3;
+  cout << "\nch4 = " << ch4;
+}
+
+void floatingPointPrecisionManipulation(){
+  float value1 = 1234.5678;
+ 
+    cout << "Value1 with fixed format: " << fixed << value1 << endl;
+    
+    cout << "Value1 with scientific format: " << scientific << value1 << endl;
+    
+    cout << "Value1 with fixed format and two decimal places: " << fixed;
+    cout << setprecision(2) << value1 << endl;
+}
+
+void getLineTestFunction(){
+  string fullName;
+  cout << "Enter your full name with spaces: \n";
+  getline(cin, fullName);
+  cout << fullName << endl;
+}
+
+void readFileTestFunction(){
+  ifstream inData;
+  ofstream outData;
+
+  inData.open("progData.dat");
+  outData.open("progData.out");ios::app
+  /*
+  outData.open("progData.out", ios::app); // for appending
+  */
+
+  inData.close();
+  outData.close();
+}
 
 /*
 #include <iostream>
