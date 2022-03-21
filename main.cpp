@@ -16,7 +16,7 @@ int main() {
   bool quit = false;
   while (!quit){
 
-    //inchesTestFunction();
+    inchesTestFunction();
 
     //infoTestFunction();
 
@@ -45,11 +45,17 @@ int main() {
 
 void inchesTestFunction() {
   int inches = 100;
-    cout << "Enter the total number of inches: ";
-    cin >> inches;
+  cout << "Enter the total number of inches: ";
+  cin >> inches;
+  if(cin){
     cout << inches << " inch(es) = ";
     cout << inches / 12 << " feet (foot) and ";
     cout << inches % 12 << " inch(es) = " << endl;
+  } else {
+    cout << "\n  Bad input - try again.\n" << endl;
+    cin.clear();
+    cin.ignore(100000,'\n');
+  }
 }
 
 void infoTestFunction() {
@@ -121,13 +127,20 @@ void readFileTestFunction(){
   ofstream outData;
 
   inData.open("progData.dat");
-  outData.open("progData.out");ios::app
+  outData.open("progData.out");
   /*
   outData.open("progData.out", ios::app); // for appending
   */
-
-  inData.close();
-  outData.close();
+  if(inData){
+    inData.close();
+  } else {
+    cout << "progData.dat did not exist." << endl;
+  }
+  if(outData){
+    outData.close();
+  } else {
+    cout << "progData.out does not exist." << endl;
+  }
 }
 
 /*
