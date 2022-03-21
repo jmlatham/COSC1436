@@ -16,7 +16,7 @@ int main() {
   bool quit = false;
   while (!quit){
 
-    inchesTestFunction();
+    //inchesTestFunction();
 
     //infoTestFunction();
 
@@ -28,7 +28,7 @@ int main() {
 
     //getLineTestFunction();
 
-    readFileTestFunction();
+    //readFileTestFunction();
     
     char again = 'n';
     cout << "Run again? Y for 'Yes' and N for 'No' : ";
